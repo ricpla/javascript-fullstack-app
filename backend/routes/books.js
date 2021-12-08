@@ -1,5 +1,7 @@
 const {Router} = require('express');
 const router = Router();
+const fs = require('fs-extra');
+const path = require('path');
 
 const Book = require('../models/Books');
 
@@ -11,7 +13,8 @@ router.get('/', async (req, res) =>{
 
 router.post('/', async (req, res) =>{
     const {title, author, isbn} = req.body;
-    const newBook = new Book({title, author, isbn});
+    const imagePath = '/uploads/' + req.file.filename;
+    const newBook = new Book({title, author, isbn, imagePath});
     await newBook.save();
     res.json({message: 'Book Save'});
 });
@@ -19,7 +22,7 @@ router.post('/', async (req, res) =>{
 
 router.delete('/:id', async (req, res) =>{
     const book = await Book.findByIdAndDelete(req.params.id);
-    console.log(book);
+    fs.unlink(path.resolve('./backend/public' + book.imagePath));
     res.json({message: 'Book Deleting'});
 })
 module.exports = router;

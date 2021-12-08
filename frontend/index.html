@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Books</title>
+    <!-- Bootstrap -->
+    <link href="https://bootswatch.com/5/solar/bootstrap.min.css" rel="stylesheet">
+    <!-- ANIMATE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <nav id="nav" class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a href="/" id="navbar-brand" class="navbar-brand">Books App</a>
+        </div>
+    </nav>
+
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                <form id="book-form" class="card card-body">
+                    <div class="mb-3">
+                        <input type="text" id="title" class="form-control" placeholder="Book Title" autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" id="author" class="form-control" placeholder="Author">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" id="isbn" class="form-control" placeholder="ISBN">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="image" >
+                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                      </div>
+                    <button class="btn btn-primary">
+                        Save Book
+                    </button>
+                </form>
+                </div>
+                <div id="message">
+
+                </div>
+            </div>
+            <div class="col md 8" id="books-cards">
+                
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                  <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+                </a>
+                <span class="text-muted">&copy; 2021 Ricardo Pla </span>
+              </div>
+          
+              <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+              </ul>
+            </footer>
+          </div>
+    </footer>
+</body>
+</html>
