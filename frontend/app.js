@@ -11,16 +11,14 @@ document.getElementById('book-form')
         e.preventDefault();
         const title = document.getElementById('title').value;
         const author = document.getElementById('author').value;
-        const isbn = document.getElementById('isbn').value;
+        const link = document.getElementById('link').value;
         const image = document.getElementById('image').files;
-        const file = document.getElementById('file').files;
 
         const formData = new FormData();
         formData.append('image', image[0]);
-        formData.append('file', file[0]);
         formData.append('title', title);
         formData.append('author', author);
-        formData.append('isbn', isbn);
+        formData.append('link', link);
 
         const ui = new UI();
         ui.addNewBook(formData);

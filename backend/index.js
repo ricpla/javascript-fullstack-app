@@ -18,20 +18,13 @@ app.set('port', process.env.PORT || 3000);
 
 // Middlewares
 app.use(morgan('dev'));
-const storageImg = multer.diskStorage({
-    destination: path.join(__dirname, 'public/uploads/img'),
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, 'public/uploads'),
     filename(req, file, cb){
         cb(null, new Date().getTime() + path.extname(file.originalname));
     }
 });
-const storageFiles = multer.diskStorage({
-    destination: path.join(__dirname, 'public/uploads/files'),
-    filename(req, file, cb){
-        cb(null, new Date().getTime() + path.extname(file.originalname));
-    }
-});
-app.use(multer({storageImg}).single('image'));
-app.use(multer({storageFiles}).single('file'));
+app.use(multer({storage}).single('image'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cors());
